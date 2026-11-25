@@ -1,0 +1,10 @@
+﻿# Commit format:
+# Icon type: descriptive title
+#
+# - Explain the changes made
+# - Explain why the changes are necessary
+# - Mention relevant testing
+#
+# Supported types:
+# feat, fix, docs, refactor, test, chore,
+# build, ci, perf, style, revert

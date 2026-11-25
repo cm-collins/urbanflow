@@ -1,0 +1,45 @@
+@'
+# Build directories
+/build/
+/out/
+/cmake-build-*/
+
+# Compiled binaries
+*.exe
+*.dll
+*.obj
+*.o
+*.a
+*.lib
+*.pdb
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+CMakeUserPresets.json
+
+# Ninja generated files
+.ninja_deps
+.ninja_log
+build.ninja
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Environment and local configuration
+.env
+.env.local
+
+# Test results
+Testing/
+coverage/
+'@ | Set-Content -Encoding ASCII .gitignore

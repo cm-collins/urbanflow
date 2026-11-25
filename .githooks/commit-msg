@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -e
+
+message_file="$1"
+
+title=$(grep -v '^[[:space:]]*#' "$message_file" | head -n 1 | tr -d '\r')
+
+if [[ "$title" == Merge\ * || "$title" == Revert\ * ]]; then
+    exit 0
+fi
+
+pattern='^(✨|🐛|📝|♻️|✅|🔧|📦|👷|⚡|🎨|🔖|🔥) (feat|fix|docs|refactor|test|chore|build|ci|perf|style|revert): .+'
+
+if ! [[ "$title" =~ $pattern ]]; then
+    echo "Invalid UrbanFlow commit message."
+    echo "Required format: Icon type: descriptive title"
+    exit 1
+fi
+
+body=$(grep -v '^[[:space:]]*#' "$message_file" | tail -n +2 | grep -v '^[[:space:]]*$' || true)
+
+if [[ -z "$body" ]]; then
+    echo "A descriptive commit body is required."
+    exit 1
+fi
+
+echo "UrbanFlow commit message validation passed."
